@@ -16,8 +16,6 @@ class RiemannZetaCriticalLine:
         self.center_y = 70
         self.center_z = 0
 
-        self.clear_area()
-
     def close(self):
         if self.rcon:
             self.rcon.__exit__(None, None, None)
@@ -30,11 +28,6 @@ class RiemannZetaCriticalLine:
             return response
         except Exception as e:
             return None
-
-    def clear_area(self):
-        size = 150
-        self.execute(f"fill {self.center_x-size} {self.center_y-1} {self.center_z-size} "
-                     f"{self.center_x+size} {self.center_y+1} {self.center_z+size} air")
 
     def approx_zeta_via_eta(self, s, N=2000):
         eta = 0.0 + 0.0j
